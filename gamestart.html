@@ -1,0 +1,96 @@
+<div class="map-container">
+    <h1>Mapa do Jogo - Explorando o Mundo</h1>
+    
+    <div class="character-description">
+      <p>Olá, sou a personagem principal do jogo! Estou prestes a iniciar minha jornada e vou me auto-audiodescrever para vocês.</p>
+      <button onclick="playDescription()">Ouvir minha descrição</button>
+    </div>
+  
+    <div class="map">
+      <div class="location" onclick="exploreLocation('Airport')">
+        <img src="assets\img\airport.jpg" alt="Aeroporto">
+        <p>Aeroporto</p>
+      </div>
+      <div class="location" onclick="exploreLocation('Hotel')">
+        <img src="hotel.jpg" alt="Hotel">
+        <p>Hotel</p>
+      </div>
+      <div class="location" onclick="exploreLocation('Cafeteria')">
+        <img src="cafeteria.jpg" alt="Cafeteria">
+        <p>Cafeteria</p>
+      </div>
+      <div class="location" onclick="exploreLocation('Parque Zoológico')">
+        <img src="zoologico.jpg" alt="Parque Zoológico">
+        <p>Parque Zoológico</p>
+      </div>
+      <div class="location" onclick="exploreLocation('Museu')">
+        <img src="museu.jpg" alt="Museu">
+        <p>Museu</p>
+      </div>
+      <div class="location" onclick="exploreLocation('Escola')">
+        <img src="escola.jpg" alt="Escola">
+        <p>Escola</p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Função para tocar a auto-audiodescrição da personagem
+    function playDescription() {
+      const audio = new Audio('auto_audiodescricao.mp3'); // áudio da descrição da personagem
+      audio.play();
+      alert('A personagem está se auto-audiodescrevendo...');
+    }
+  
+    // Função para explorar o ambiente
+    function exploreLocation(location) {
+      alert(`Você está explorando o ${location}.`);
+      // Aqui você pode adicionar um redirecionamento ou abrir mais detalhes do local
+      window.location.href = 'airport.html'
+      // Exemplo: window.location.href = `${location}.html`;
+    }
+  </script>
+  
+  <style>
+    .map-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+  
+    .character-description {
+      margin-bottom: 20px;
+    }
+  
+    .map {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+    }
+  
+    .location {
+      margin: 10px;
+      cursor: pointer;
+      text-align: center;
+    }
+  
+    .location img {
+      width: 150px;
+      height: 150px;
+      border-radius: 8px;
+    }
+  
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+  

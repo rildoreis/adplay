@@ -1,0 +1,140 @@
+<div class="customization-container">
+    <h1>Escolha seu Personagem e Cão-Guia</h1>
+    
+    <div class="character-selection">
+      <h2>Escolha seu Personagem</h2>
+      <div class="characters">
+        <!-- Opções de Personagem -->
+        <div class="character" onclick="selectCharacter('Personagem 1')">
+          <img src="assets\img\clara.jpg" alt="Personagem 1">
+          <p>Personagem 1</p>
+        </div>
+        <div class="character" onclick="selectCharacter('Personagem 2')">
+          <img src="personagem2.jpg" alt="Personagem 2">
+          <p>Personagem 2</p>
+        </div>
+        <div class="character" onclick="selectCharacter('Personagem 3')">
+          <img src="personagem3.jpg" alt="Personagem 3">
+          <p>Personagem 3</p>
+        </div>
+        <div class="character" onclick="selectCharacter('Personagem 4')">
+          <img src="personagem4.jpg" alt="Personagem 4">
+          <p>Personagem 4</p>
+        </div>
+        <div class="character" onclick="selectCharacter('Personagem 5')">
+          <img src="personagem5.jpg" alt="Personagem 5">
+          <p>Personagem 5</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="dog-guide-selection">
+      <h2>Escolha seu Cão-Guia</h2>
+      <div class="dogs">
+        <!-- Opções de Cães-Guia -->
+        <div class="dog" onclick="selectDog('Cão-Guia 1')">
+          <img src="cao1.jpg" alt="Cão-Guia 1">
+          <p>Cão-Guia 1</p>
+        </div>
+        <div class="dog" onclick="selectDog('Cão-Guia 2')">
+          <img src="cao2.jpg" alt="Cão-Guia 2">
+          <p>Cão-Guia 2</p>
+        </div>
+        <div class="dog" onclick="selectDog('Cão-Guia 3')">
+          <img src="cao3.jpg" alt="Cão-Guia 3">
+          <p>Cão-Guia 3</p>
+        </div>
+        <div class="dog" onclick="selectDog('Cão-Guia 4')">
+          <img src="cao4.jpg" alt="Cão-Guia 4">
+          <p>Cão-Guia 4</p>
+        </div>
+        <div class="dog" onclick="selectDog('Cão-Guia 5')">
+          <img src="cao5.jpg" alt="Cão-Guia 5">
+          <p>Cão-Guia 5</p>
+        </div>
+      </div>
+    </div>
+    
+    <button onclick="startJourney()">Iniciar Jornada</button>
+  </div>
+  
+  <script>
+    let selectedCharacter = null;
+    let selectedDog = null;
+  
+    // Função para selecionar o personagem
+    function selectCharacter(character) {
+      selectedCharacter = character;
+      alert(`Você escolheu: ${character}`);
+    }
+  
+    // Função para selecionar o cão-guia
+    function selectDog(dog) {
+      selectedDog = dog;
+      alert(`Você escolheu: ${dog}`);
+    }
+  
+    // Função para iniciar a jornada
+    function startJourney() {
+      if (selectedCharacter && selectedDog) {
+        alert(`Você começou a jornada com ${selectedCharacter} e o ${selectedDog}.`);
+        // Aqui você pode redirecionar para a página de início da jornada
+        window.location.href = 'gamestart.html'; // Exemplo de redirecionamento
+      } else {
+        alert('Escolha um personagem e um cão-guia para começar!');
+      }
+    }
+  </script>
+
+  <script>
+    const { ipcRenderer } = require("electron");
+
+    // Exemplo: Atualizar progresso para 50%
+    function updateProgress(newProgress) {
+        ipcRenderer.send("update-progress", { email: "usuario@example.com", progress: newProgress });
+    }
+
+    // Teste: Atualizar progresso ao clicar em um botão
+    document.querySelector("#update-progress").addEventListener("click", () => {
+        updateProgress(50); // Atualizar para 50%
+    });
+</script>
+
+  
+  <style>
+    .customization-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+  
+    .characters, .dogs {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+  
+    .character, .dog {
+      cursor: pointer;
+    }
+  
+    .character img, .dog img {
+      width: 155px;
+      height: 200px;
+      border-radius: 8px;
+    }
+  
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+  

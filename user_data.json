@@ -1,0 +1,8 @@
+{
+    "usuario@example.com": {
+      "name": "Usuario",
+      "password": "12345",
+      "progress": 50
+    }
+  }
+  

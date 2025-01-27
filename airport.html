@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aeroporto - Jogo</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      
+      h1 {
+        color: #333;
+      }
+      
+      .location-container {
+        text-align: center;
+        margin-top: 50px;
+      }
+      
+      .location-description {
+        background-color: #fff;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        background-color: #45a049;
+      }
+      
+
+  </style>
+</head>
+<body>
+  <div class="location-container">
+    <h1>Aeroporto</h1>
+    <p>Bem-vindo ao aeroporto. Aqui a personagem se prepara para a sua jornada.</p>
+    
+    <div class="location-description">
+      <p>A personagem observa o movimento ao redor, o som de malas sendo arrastadas e as conversas ao fundo. Ela se aproxima do balcão de informações para saber mais sobre o voo.</p>
+      <button onclick="continueJourney()">Continuar para o próximo local</button>
+    </div>
+  </div>
+
+  <script>
+    function continueJourney() {
+      window.location.href = "hotel.html"; // Redirecionamento para o hotel
+    }
+  </script>
+</body>
+</html>

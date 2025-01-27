@@ -1,0 +1,19 @@
+{
+  "name": "adventureplay",
+  "version": "1.0.0",
+  "description": "Tela inicial do jogo Adventure Play",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "Seu Nome",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^25.0.0"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}

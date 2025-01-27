@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AD Venture Play - Tela Inicial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #00203FFF, #ADEFD1FF);
+            color: #fff;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .hero {
+            margin-top: 50px;
+        }
+
+        .hero img {
+            max-width: 300px;
+            border-radius: 15px;
+        }
+
+        .description {
+            margin: 20px 0;
+            font-size: 18px;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .button {
+            padding: 15px 25px;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <img src="assets\img\logo.png" alt="Personagens principais">
+            <div class="description">
+                <p>Bem-vindo ao AD Venture Play! Mergulhe em um mundo interativo onde você aprenderá sobre audiodescrição e aprimorará suas habilidades linguísticas enquanto explora desafios emocionantes.</p>
+            </div>
+            <img src="assets\img\inicial.webp" alt="Personagens principais">
+
+        </div>
+
+        
+
+        <div class="buttons">
+            <a href="login.html" class="button">Login e Registro</a>
+            <a href="game.html" class="button">Página do jogo</a>
+            <a href="tutorial.html" class="button">Tutorial do Jogo</a>
+            <a href="extra-activities.html" class="button">Atividades Extras</a>
+            <a href="teacher-manual.html" class="button">Manual Pedagógico</a>
+            <a href="audiodescription.html" class="button">Sobre Audiodescrição</a>
+            <a href="about.html" class="button">Sobre o Projeto</a>
+        </div>
+    </div>
+    <div class="loading">
+        <img src="http://a.top4top.net/p_1990j031.gif" alt="Loading">
+        </div>
+        <div class="mouse original"></div>
+        <script>
+            const { ipcRenderer } = require("electron");
+        
+            document.querySelector("form").addEventListener("submit", (e) => {
+                e.preventDefault();
+        
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+        
+                // Enviar dados de login para o processo principal
+                ipcRenderer.send("login-user", { email, password });
+            });
+        
+            // Receber mensagens do processo principal
+            ipcRenderer.on("login-success", (event, message) => {
+                alert(message);
+                window.location.href = "game.html"; // Redirecionar para o jogo
+            });
+        
+            ipcRenderer.on("login-failed", (event, message) => {
+                alert(message);
+            });
+        </script>
+        
+        
+</body>
+</html>
